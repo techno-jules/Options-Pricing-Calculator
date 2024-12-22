@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options Optimizer: Options Pricing Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+
+    <div class="container">
+        <h1> Options Optimizer: An Options Pricing Calculator</h1>
+        <form method="POST">
+            <div class="input-field">
+                <label for="S">Spot Price (S):</label>
+                <input type="number" id="S" name="S" step="0.01" required>
+            </div>
+            <div class="input-field">
+                <label for="K">Strike Price (K):</label>
+                <input type="number" id="K" name="K" step="0.01" required>
+            </div>
+            <div class="input-field">
+                <label for="T">Time to Maturity (T in years):</label>
+                <input type="number" step="0.01" id="T" name="T" required>
+            </div>
+            <div class="input-field">
+                <label for="r">Risk-Free Rate (r):</label>
+                <input type="number" step="0.01" id="r" name="r" required>
+            </div>
+            <div class="input-field">
+                <label for="sigma">Volatility (σ):</label>
+                <input type="number" step="0.01" id="sigma" name="sigma" required>
+            </div>
+            <div class="input-field">
+                <label for="market_price">Market Price of the Option:</label>
+                <input type="number" step="0.01" id="market_price" name="market_price" required>
+            </div>
+            <div class="input-field">
+                <label for="method">Choose Method:</label>
+                <select id="method" name="method" required>
+                    <option value="black_scholes">Black-Scholes</option>
+                    <option value="monte_carlo">Monte Carlo</option>
+                    <option value="implied_vol">Implied Volatility</option>
+                </select>
+            </div>
+            <div class="input-field">
+                <label for="num_simulations">Number of Simulations (for Monte Carlo):</label>
+                <input type="number" id="num_simulations" name="num_simulations" value="100000">
+            </div>
+            <button type="submit">Calculate</button>
+        </form>
+        
+
+        {% if call_price is not none %}
+        <h2>Results ({{ method | capitalize }}):</h2>
+        <p>Call Option Price: ${{ "{:.2f}".format(call_price) }}</p>
+        {% endif %}
+
+        {% if put_price is not none %}
+        <p>Put Option Price: ${{ "{:.2f}".format(put_price) }}</p>
+        {% endif %}
+
+        {% if implied_vol is not none %}
+        <h2>Implied Volatility: ${{ "{:.2f}".format(implied_vol) }}</h2>
+        {% endif %}
+
+
+    </div>
+</body>
+</html>
