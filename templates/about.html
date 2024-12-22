@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - The Options Optimizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </div>
+
+    <div class="container">
+        <h1>About This Project</h1>
+        <p>Hi! My name is Juli and I created Options Optimizer, an Options Pricing Calculator designed to calculate  theoretical prices of call and put options based on important inputs such as spot price, strike price, volatility, time to maturity, and risk-free rate. I implemented 3 models, including the Black-Scholes formula, Monte Carlo simulations, and Implied Volatility calculations, making this a versatile tool for financial analysis in quant finance:D</p>
+        
+        <h2>Quant Finance Key Terms Explained</h2>
+        <ul>
+            <li><strong>Black-Scholes:</strong> A math model used for pricing European-style options. The formula accounts for key factors such as the spot price, strike price, volatility, risk-free rate, and time to expiration. It's widely used in the options market and is based on the assumption of lognormal asset returns.</li>
+            <li><strong>Monte Carlo Simulation:</strong> A statistical technique that uses random sampling to simulate a range of possible outcomes in the pricing of an option. By simulating many price paths, it approximates the price of options whose pricing models may be difficult to solve analytically.</li>
+            <li><strong>Implied Volatility:</strong> The volatility value implied by the market price of an option. It's derived using an option pricing model, like Black-Scholes, by solving for the volatility that would result in a price matching the current market price of the option. Implied volatility helps to gauge market expectations of future volatility.</li>
+            <li><strong>Spot Price:</strong> The current market price of the underlying asset or stock.</li>
+            <li><strong>Strike Price:</strong> The price at which an option holder can buy or sell the underlying asset. The strike price, in combination with the spot price, helps determine whether an option is in-the-money (ITM) or out-of-the-money (OTM).</li>
+            <li><strong>Time to Maturity:</strong> The time remaining until the option expires, usually expressed in years. The closer an option is to expiration, the more its price is affected by time decay.</li>
+            <li><strong>Risk-Free Rate:</strong> The theoretical return on an investment with no risk. It's often represented by the yield on short-term government bonds, such as U.S. Treasury bills.</li>
+            <li><strong>Vega:</strong> This measures an option's sensitivity to volatility. It shows how much an option's price will change with a 1% change in the implied volatility of the underlying asset.</li>
+            <li><strong>Delta:</strong> This measures the sensitivity of an option's price to changes in the price of the underlying asset. It represents the rate of change of the option price for a unit change in the underlying asset price.</li>
+            <li><strong>Theta:</strong> This represents the rate of change of an option's price with respect to the passage of time such as time decay.</li>
+        </ul>
+        
+        <h2>How I created this Web App</h2>
+        <p>I used HTML/CSS and Flask to process user input, make the design, and display resulting calculations for options prices based on 3 popular models used in quantitative finance. I implemented the Black-Scholes model and Monte Carlo simulations using Python's scientific libraries such as NumPy and SciPy. I also calculated implied volatility through a Newton-Raphson method for a more advanced feature:D</p>
+        
+       
+        <h3>Inspiration</h3>
+        <p>As a current Computer Science Major student, I made this project after my growing interest in quant finance and my desire to develop a deeper understanding of financial modeling. As I learned about options and trading through Jane Street's FTTP Program, I was super inspired to learn more about this cool finance field, and later researched different formulas like Black-Scholes and Monte Carlo simulations and how important they are. By building this app, I was able to apply my programming skills while diving into real-world finance concepts. My main goal is to provide an accessible and interactive web app where people could experiment with different pricing models and better understand options pricing, offering insights into options markets and pricing strategies:D</p>
+    </div>
+</body>
+</html>
